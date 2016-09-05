@@ -21,7 +21,7 @@ checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name
    // bat 'dir'
 // bat 'sonar-runner -v'
     // bat 'sonar-runner'
-    bat 'sonar-runner -e -Dsonar.host.url=http://172.31.27.51:9000/'
+    bat 'sonar-runner -e -Dsonar.host.url=http://localhost:9000/'
     parallel (
     "stream 1" : { 
                      node {
