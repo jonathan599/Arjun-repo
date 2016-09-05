@@ -19,7 +19,7 @@ checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name
 
     stage 'Analysis'
    // bat 'dir'
-// bat 'sonar-runner -v'
+bat 'mvn sonar-runner -v'
     // bat 'sonar-runner'
     bat 'sonar-runner -e -Dsonar.host.url=http://localhost:9000/'
     parallel (
@@ -30,6 +30,6 @@ checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name
                    }
     )
     stage 'Deploy'
-    bat 'pscp target/*.war ubuntu@172.31.28.177:/tmp'
+    bat 'pscp target/*.war http://localhost:8089/mywebapp/'
     
 }
